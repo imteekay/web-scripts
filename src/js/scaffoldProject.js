@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const CURRENT_DIR = process.cwd();
 const ENCODING = 'utf8';
 
@@ -31,3 +33,10 @@ function scaffoldProject(templatePath, projectPath) {
   const filesToCreate = fs.readdirSync(templatePath);
   createFiles({ filesToCreate, templatePath, projectPath });
 }
+
+const templateDir = 'template';
+const templatePath = `${CURRENT_DIR}/${templateDir}`;
+const projectName = 'test';
+
+fs.mkdirSync(`${CURRENT_DIR}/${projectName}`);
+scaffoldProject(templatePath, projectName);
