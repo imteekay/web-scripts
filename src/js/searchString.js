@@ -1,18 +1,18 @@
-const NOT_FOUND = -1;
-
-const search = (strings, needle) =>
-  strings.filter((string) => string.search(needle) !== NOT_FOUND);
+const search = (strings, searchTerm) =>
+  strings.filter((string) =>
+    string.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
 
 // testing
 const strings = ['joao', 'maria', 'leandro', 'kazumi', 'bêbe'];
 
-let needle;
+let searchTerm;
 
-needle = 'a';
-search(strings, needle);
+searchTerm = 'a';
+search(strings, searchTerm);
 
-needle = 'oa';
-search(strings, needle);
+searchTerm = 'oa';
+search(strings, searchTerm);
 
-needle = 'zumi';
-search(strings, needle);
+searchTerm = 'zumi';
+search(strings, searchTerm);
